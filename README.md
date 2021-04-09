@@ -119,7 +119,7 @@ For each symbol shape the pattern only addresses the base symbol, it doesn't app
 | !                                           |                                                                    |                                                                             |
 | ![Exclamation Diagram](img/exclamation.png)   | `!, ¡, ¡, ¬`                                             | Vertical shape that's off to the left, like `!` on a regular keyboard        |
 | "                                            |                                                                    |                                                                             |
-| ![Double Quote Diagram](img/double-quote.png) | `\\, “, ”, „`                                            | Two dots up high like it's shape, and off to the left like on ISO keyboards |
+| ![Double Quote Diagram](img/double-quote.png) | `\", “, ”, „`                                            | Two dots up high like it's shape, and off to the left like on ISO keyboards |
 | \#                                          |                                                                    |                                                                             |
 | ![Hash Diagram](img/hash.png)                 | `#, ©, ®, ™`                                             | Two vertical bars like in the shape                                         |
 | $                                           |                                                                    |                                                                             |
@@ -157,13 +157,13 @@ For each symbol shape the pattern only addresses the base symbol, it doesn't app
 | @                                           |                                                                    |                                                                             |
 | ![At Diagram](img/at.png)                     | `@`                                                              | Large complicated shape, only way to make a big spiral                      |
 | \\                                          |                                                                    |                                                                             |
-| ![Backslash Diagram](img/backslash.png)       | `\\`                                                             | Shape of a `\\`                                                             |
+| ![Backslash Diagram](img/backslash.png)       | `\`                                                             | Shape of a `\`                                                             |
 | ^                                           |                                                                    |                                                                             |
 | ![Caret Diagram](img/caret.png)               | `^, «, », °`                                             | Shape of a `^` and other pointy/raised symbols                              |
 | \_                                          |                                                                    |                                                                             |
 | ![Underscore Diagram](img/underscore.png)     | `_, µ, µ, µ`                                             | A line down low opposing `-`, and other lowered symbols                     |
 | \`                                          |                                                                    |                                                                             |
-| ![Backtick Diagram](img/backtick.png)         | `\``                                                             | Single dot up high, next to `'`                                             |
+| ![Backtick Diagram](img/backtick.png)         | ` \` `                                                             | Single dot up high, next to `'`                                             |
 | \|                                          |                                                                    |                                                                             |
 | ![Pipe Diagram](img/pipe.png)                 | `\|, ¦, ¦, ¦`                                             | Nice symetrical vertical shape goes in the middle                                  |
 | \~                                          |                                                                    |                                                                             |
