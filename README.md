@@ -151,7 +151,7 @@ For each symbol shape the pattern only addresses the base symbol, it doesn't app
 | ;                                           |                                                                    |                                                                             |
 | ![Semicolon Diagram](img/semicolon.png)       | `;`                                                              | Literally a `,` and `.` at the same time                                    |
 | =                                           |                                                                    |                                                                             |
-| ![Equals Diagram](img/equals.png)             | `-`                                                              | Literally a `-` and a `_` at the same time                                  |
+| ![Equals Diagram](img/equals.png)             | `=`                                                              | Literally a `-` and a `_` at the same time                                  |
 | ?                                           |                                                                    |                                                                             |
 | ![Question Diagram](img/question.png)         | `?, ¿, ¿, ¿`                                             | Looks like the top of a `?`                                                 |
 | @                                           |                                                                    |                                                                             |
