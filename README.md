@@ -119,7 +119,7 @@ For each symbol shape the pattern only addresses the base symbol, it doesn't app
 | !                                           |                                                                    |                                                                             |
 | ![Exclamation Diagram](img/exclamation.png)   | `!, ¡, ¡, ¬`                                             | Vertical shape that's off to the left, like `!` on a regular keyboard        |
 | "                                            |                                                                    |                                                                             |
-| ![Double Quote Diagram](img/double-quote.png) | `\", “, ”, „`                                            | Two dots up high like it's shape, and off to the left like on ISO keyboards |
+| ![Double Quote Diagram](img/double-quote.png) | `", “, ”, „`                                            | Two dots up high like it's shape, and off to the left like on ISO keyboards |
 | \#                                          |                                                                    |                                                                             |
 | ![Hash Diagram](img/hash.png)                 | `#, ©, ®, ™`                                             | Two vertical bars like in the shape                                         |
 | $                                           |                                                                    |                                                                             |
