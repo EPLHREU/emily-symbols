@@ -3,7 +3,7 @@
 ## Design 
 
 This dictionary was created with the following goals in mind:
-- Have a consistent method to type every symbols 
+- Have a consistent method to type (pretty much) every symbol 
 - Specify spacing and capitalisation of that symbol in 1 stroke 
 - Hackable and understandable to anyone who finds it useful :)
 
