@@ -25,7 +25,7 @@ These options are mapped to different sections of the steno board:
 ### Unique Starter
 The first part of the stroke is always the same and identifies all the symbols.
 In the Magnum Steno dictionary that I use, `SKHW` is a unique key combination for the left hand that is never used.
-(note that `SKWHR` is used, but by not using `-R`, this makes it unique)
+(note that `SKWHR` is used, but by not using `R-`, this makes it unique)
 
 ![Unique Starter Diagram](img/starter.png)
 
