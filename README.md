@@ -131,9 +131,9 @@ For each symbol shape the pattern only addresses the base symbol, it doesn't app
 | '                                           |                                                                    |                                                                             |
 | ![quote Diagram](img/quote.png)               | `', ‘, ’, ‚`                                             | One dot up high, similar to `"`, on the index for importance                |
 | (                                           |                                                                    |                                                                             |
-| ![Open Diagram](img/open.png)                 | `(, , <, {`                                            | Similar to the standard steno brief                                         |
+| ![Open Diagram](img/open.png)                 | `(, [, <, {`                                            | Similar to the standard steno brief                                         |
 | )                                           |                                                                    |                                                                             |
-| ![Close Diagram](img/close.png)               | `), , >, }`                                            | Similar to the standard steno brief                                         |
+| ![Close Diagram](img/close.png)               | `), ], >, }`                                            | Similar to the standard steno brief                                         |
 | *                                           |                                                                    |                                                                             |
 | ![Star Diagram](img/star.png)                 | `*, ×, ×, ×`                                             | single dot shape, off to the right like JIS, up high in the sky             |
 | +                                           |                                                                    |                                                                             |
