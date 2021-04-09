@@ -137,7 +137,7 @@ For each symbol shape the pattern only addresses the base symbol, it doesn't app
 | *                                           |                                                                    |                                                                             |
 | ![Star Diagram](img/star.png)                 | `*, ×, ×, ×`                                             | single dot shape, off to the right like JIS, up high in the sky             |
 | +                                           |                                                                    |                                                                             |
-| ![Plus Diagram](img/dollar.png)               | `+, §, ¶, ±`                                             | single dot shape, off to the right like JIS, under the star                 |
+| ![Plus Diagram](img/plus.png)               | `+, §, ¶, ±`                                             | single dot shape, off to the right like JIS, under the star                 |
 | ,                                           |                                                                    |                                                                             |
 | ![Comma Diagram](img/comma.png)               | `,`                                                              | Single dot shape, below like on a keyboard, middle finger as less important |
 | -                                           |                                                                    |                                                                             |
