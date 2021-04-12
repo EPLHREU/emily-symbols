@@ -15,7 +15,7 @@ LONGEST_KEY = 17
 # if no variants exist, then a single string can be used for the symbol and the variant specifier keys will be valid but ignored
 symbols = {
         # more computer function-y symbols
-        "PG"    : ["{#Tab}", "{#Backspace}", "{#Delete}", "{#Escape}"],             
+        "FG"    : ["{#Tab}", "{#Backspace}", "{#Delete}", "{#Escape}"],             
         "RPBG"  : ["{#Up}", "{#Left}", "{#Right}", "{#Down}"],                      
         "FRPBG" : ["{#Page_Up}", "{#Home}", "{#End}", "{#Page_Down}"],              
         "FRBG"  : ["{#AudioPlay}", "{#AudioPrev}", "{#AudioNext}", "{#AudioMute}"], 
