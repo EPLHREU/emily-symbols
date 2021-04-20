@@ -123,8 +123,11 @@ def lookup(key):
     # repeat the symbol the specified number of times
     output = output * repeat
 
-    # attachment space to either end of the symbol string to avoid escapement
-    output = " " + output + " "
+    # attachment space to either end of the symbol string to avoid escapement,
+    # but prevent doing this for retrospective add/delete spaces, since it'll
+    # mess with these macros
+    if stroke != "":
+        output = " " + output + " "
 
     # add appropriate attachment as specified
     if attach[0]:
