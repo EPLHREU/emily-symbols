@@ -165,7 +165,7 @@ For each symbol shape the pattern only addresses the base symbol, it doesn't app
 | \_                                          |                                                                    |                                                                             |
 | ![Underscore Diagram](img/underscore.png)     | `_, µ, µ, µ`                                             | A line down low opposing `-`, and other lowered symbols                     |
 | \`                                          |                                                                    |                                                                             |
-| ![Backtick Diagram](img/backtick.png)         | ` \` `                                                             | Single dot up high, next to `'`                                             |
+| ![Backtick Diagram](img/backtick.png)         | `` ` ``                                                             | Single dot up high, next to `'`                                             |
 | \|                                          |                                                                    |                                                                             |
 | ![Pipe Diagram](img/pipe.png)                 | `\|, ¦, ¦, ¦`                                             | Nice symetrical vertical shape goes in the middle                                  |
 | \~                                          |                                                                    |                                                                             |
