@@ -9,7 +9,7 @@ uniqueStarter = "SKWH"
 # 2 : variant
 # 6 : symbol (@)
 # 2 : duplication
-LONGEST_KEY = 17 
+LONGEST_KEY = 17
 
 # variant format = ['', 'E', 'U', 'EU']
 # if no variants exist, then a single string can be used for the symbol and the variant specifier keys will be valid but ignored
@@ -19,7 +19,7 @@ symbols = {
         "RPBG"  : ["{#Up}", "{#Left}", "{#Right}", "{#Down}"],                      
         "FRPBG" : ["{#Page_Up}", "{#Home}", "{#End}", "{#Page_Down}"],              
         "FRBG"  : ["{#AudioPlay}", "{#AudioPrev}", "{#AudioNext}", "{#AudioMute}"], 
-        ""      : ["", "{*!}", "{*?}", "{#Space}"],                                      
+        ""      : ["", "{*!}", "{*?}", "{#Space}"],                                 
 
         # typable symbols
         "FR"     : ["!", "¡", "¡", "¬"],  
@@ -47,7 +47,8 @@ symbols = {
         "BG"     : ["_", "µ", "µ", "µ"],  
         "P"      : "`",                   
         "PB"     : ["|", "¦", "¦", "¦"],  
-        "FPBG"   : ["~", "˜", "˜", "˜"]   
+        "FPBG"   : ["~", "˜", "˜", "˜"],  
+        "FPBL"   : ["↑", "←", "→", "↓"]   
 }
 
 

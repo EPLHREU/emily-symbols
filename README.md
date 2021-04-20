@@ -110,6 +110,8 @@ For each symbol shape the pattern only addresses the base symbol, it doesn't app
 | ![Whitespace Diagram](img/whitespace.png)     | `{#Tab}, {#Backspace}, {#Delete}, {#Escape}`             | The pattern aligns with the tips of the arrows on a tab key legend: ↹       |
 | Arrows                                        |                                                                    |                                                                             |
 | ![Arrow Diagram](img/arrow.png)               | `{#Up}, {#Left}, {#Right}, {#Down}`                      | Looks like an arrow key cluster                                             |
+| ↑                                             |                                                                    |                                                                             |
+| ![Arrow Symbols Diagram](img/arrow-symbols.png) | `↑, ←, →, ↓`                                           | Looks like an upside-down arrow key cluster                                             |
 | Navigation                                    |                                                                    |                                                                             |
 | ![Navigation Diagram](img/nav.png)            | `{#Page_Up}, {#Home}, {#End}, {#Page_Down}`              | Arrow key cluster but with an addition key held down                        |
 | Music                                         |                                                                    |                                                                             |
