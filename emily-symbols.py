@@ -139,6 +139,13 @@ def lookup(key):
     if attach[1]:
         output = output + "{^}"
 
+    # cancel out some formatting when using space attachment 
+    if attachmentMethod == "space":
+        if not attach[0]:
+            output = "{}" + output
+        if not attach[1]:
+            output = output + "{}" 
+
     # apply capitalisation 
     if capital:
         output = output + "{-|}"
