@@ -3,13 +3,8 @@
 
 uniqueStarter = "SKWH"
 
-# 4 : unique starter
-# 2 : attachment
-# 1 : capital
-# 2 : variant
-# 6 : symbol (@)
-# 2 : duplication
-LONGEST_KEY = 17
+
+LONGEST_KEY = 1
 
 # variant format = ['', 'E', 'U', 'EU']
 # if no variants exist, then a single string can be used for the symbol and the variant specifier keys will be valid but ignored
