@@ -34,26 +34,40 @@ To adjust this starter to your dictionary just change the "uniqueStarter" variab
 
 ### Attachment 
 There is a consistent way to specify attachment to the text around a symbol using the `A` and `O` keys.
-By default with no attachment specified spaces are inserted on both side of a symbol, like the `&` in the following example: `one & two`.
+From community feedback there are two different attachment specification systems that are the inverse of each other:
+- space
+- attachment
 
-| Keys                                            | Output               |
-|-------------------------------------------------|----------------------|
-| ![No Attachment Diagram](img/no-attach.png)     | `x . x`, `one & two` |
+`space` specification is the default system.
+With space attachment, the attachment keys specify on which side of the symbol spaces should be inserted. 
+This means without any attachment keys used, no spaces will be inserted and the symbol will fully attach on both sides like the `/` in: `usr/bin`
+Using `A` will insert a space before the symbol, and using `O` will insert a space after the symbol.
 
-When the `A` key is used, no space is inserted before the symbol is typed, moving it to the left of normal, like the `:` in this example: `example: one`.
-| Keys                                                | Output                 |
-|-----------------------------------------------------|------------------------|
-| ![Left Attachment Diagram](img/left-attach.png)     | `x. x`, `example: one` |
+In contrast, with `attachment` specification, the attachment keys specify on which side of the symbol spaces should be removed.
+This means with no attachment specified, spaces are inserted on both side of a symbol, like the `&` in: `one & two`.
+Using `A` will remove the space before the symbol, and using `O` will remove the space after the symbol.
 
-Similarly, when the `O` key is used, no space is inserted after the symbol, moving it to the right of normal, like the `"` in this example: `said "To`.
-| Keys                                                  | Output             |
-|-------------------------------------------------------|--------------------|
-| ![Right Attachment Diagram](img/right-attach.png)     | `x .x`, `said "To` |
+`space` may be easier for programming with, due to `/` in file paths and programming language syntax.
+Whereas `attachment` may be easier for writing with, as most symbols in speech are on their own.
+But try each one and see what works best for you!
 
-When both combined, no spaces are used at all like the `.` in this example: `3.6`.
-| Keys                                                | Output       |
-|-----------------------------------------------------|--------------|
-| ![Both Attachment Diagram](img/both-attach.png)     | `x.x`, `3.6` |
+To change which system you want to use, just change the `attachmentMethod` variable at the top of the dictionary between `"space"` and `"attachment"`.
+
+| Keys                                        | `space` | `attachment` |
+|---------------------------------------------|---------|--------------|
+| ![No Attachment Diagram](img/no-attach.png) | `x.x`   | `x . x`      |
+
+| Keys                                            | `space` | `attachment` |
+|-------------------------------------------------|---------|--------------|
+| ![Left Attachment Diagram](img/left-attach.png) | `x .x`  | `x. x`       |
+
+| Keys                                              | `space` | `attachment` |
+|---------------------------------------------------|---------|--------------|
+| ![Right Attachment Diagram](img/right-attach.png) | `x. x`  | `x .x`       |
+
+| Keys                                            | `space` | `attachment` |
+|-------------------------------------------------|---------|--------------|
+| ![Both Attachment Diagram](img/both-attach.png) | `x . x` | `x.x`        |
 
 ### Capitalisation 
 

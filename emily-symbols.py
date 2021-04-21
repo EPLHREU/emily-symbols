@@ -1,7 +1,11 @@
 # Emily's Symbol Dictionary
 
 
+# define unique starter to register all chords under
 uniqueStarter = "SKWH"
+
+# define if attachment keys define where "space"s or "attachment"s lie
+attachmentMethod = "space"
 
 
 LONGEST_KEY = 1
@@ -71,13 +75,18 @@ def lookup(key):
     # remove a "-" if present, as all keys from this point on are unique
     stroke = stroke.replace("-", '')
 
+    # if specifying attachment via spaces, by default there is full attachment
+    if attachmentMethod == "space":
+        attach = [True, True]
+    else:
+        attach = [False, False]
+
     # calculate the attachment method, and remove attachment specifier keys
-    attach = [False, False]
     if 'A' in stroke:
-        attach[0] = True
+        attach[0] = not attach[0]
         stroke = stroke.replace('A', '')
     if 'O' in stroke:
-        attach[1] = True
+        attach[1] = not attach[1]
         stroke = stroke.replace('O', '')
 
     # detect if capitalisation is required, and remove specifier key
