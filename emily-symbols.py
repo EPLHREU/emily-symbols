@@ -1,6 +1,7 @@
 # Emily's Symbol Dictionary
 import re
 
+# define your starters here
 uniqueStarters = ["SKWH", "STWH"]
 
 # define if attachment keys define where "space"s or "attachment"s lie
@@ -13,42 +14,43 @@ LONGEST_KEY = 1
 symbols = {
     "SKWH": {
         # more computer function-y symbols
-        "FG"    : ["{#Tab}", "{#Backspace}", "{#Delete}", "{#Escape}"],             
-        "RPBG"  : ["{#Up}", "{#Left}", "{#Right}", "{#Down}"],                      
-        "FRPBG" : ["{#Page_Up}", "{#Home}", "{#End}", "{#Page_Down}"],              
-        "FRBG"  : ["{#AudioPlay}", "{#AudioPrev}", "{#AudioNext}", "{#AudioMute}"], 
-        ""      : ["", "{*!}", "{*?}", "{#Space}"],                                 
+        "FG"    : ["{#Tab}", "{#Backspace}", "{#Delete}", "{#Escape}"],
+        "RPBG"  : ["{#Up}", "{#Left}", "{#Right}", "{#Down}"],
+        "FRPBG" : ["{#Page_Up}", "{#Home}", "{#End}", "{#Page_Down}"],
+        "FRBG"  : ["{#AudioPlay}", "{#AudioPrev}", "{#AudioNext}", "{#AudioMute}"],
+        ""      : ["", "{*!}", "{*?}", "{#Space}"],
 
         # typable symbols
-        "FR"     : ["!", "¬", "↦", "¡"],  
-        "FP"     : ["\"", "“", "”", "„"], 
-        "FRLG"   : ["#", "©", "®", "™"],  
-        "RPBL"   : ["$", "¥", "€", "£"],  
-        "FRPB"   : ["%", "‰", "‱", "φ"],  
-        "FBG"    : ["&", "∩", "∧", "∈"],  
-        "F"      : ["'", "‘", "’", "‚"],  
-        "FPL"    : ["(", "[", "<", "\{"], 
-        "RBG"    : [")", "]", ">", "\}"], 
-        "L"      : ["*", "∏", "§", "×"],  
-        "G"      : ["+", "∑", "¶", "±"],  
-        "B"      : [",", "∪", "∨", "∉"],  
+        "FR"     : ["!", "¬", "↦", "¡"],
+        "FP"     : ["\"", "“", "”", "„"],
+        "FRLG"   : ["#", "©", "®", "™"],
+        "RPBL"   : ["$", "¥", "€", "£"],
+        "FRPB"   : ["%", "‰", "‱", "φ"],
+        "FBG"    : ["&", "∩", "∧", "∈"],
+        "F"      : ["'", "‘", "’", "‚"],
+        "FPL"    : ["(", "[", "<", "\{"],
+        "RBG"    : [")", "]", ">", "\}"],
+        "L"      : ["*", "∏", "§", "×"],
+        "G"      : ["+", "∑", "¶", "±"],
+        "B"      : [",", "∪", "∨", "∉"],
         "PL"     : ["-", "−", "–", "—"],
-        "R"      : [".", "•", "·", "…"],  
-        "RP"     : ["/", "⇒", "⇔", "÷"],  
-        "LG"     : [":", "∋", "∵", "∴"],  
-        "RB"     : [";", "∀", "∃", "∄"],  
-        "PBLG"   : ["=", "≡", "≈", "≠"],  
-        "FPB"    : ["?", "¿", "∝", "‽"],  
-        "FRPBLG" : ["@", "⊕", "⊗", "∅"],  
-        "FB"     : ["\\", "Δ", "√", "∞"], 
-        "RPG"    : ["^", "«", "»", "°"],  
-        "BG"     : ["_", "≤", "≥", "µ"],  
-        "P"      : ["`", "⊂", "⊃", "π"],  
-        "PB"     : ["|", "⊤", "⊥", "¦"],  
-        "FPBG"   : ["~", "⊆", "⊇", "˜"],  
-        "FPBL"   : ["↑", "←", "→", "↓"]   
+        "R"      : [".", "•", "·", "…"],
+        "RP"     : ["/", "⇒", "⇔", "÷"],
+        "LG"     : [":", "∋", "∵", "∴"],
+        "RB"     : [";", "∀", "∃", "∄"],
+        "PBLG"   : ["=", "≡", "≈", "≠"],
+        "FPB"    : ["?", "¿", "∝", "‽"],
+        "FRPBLG" : ["@", "⊕", "⊗", "∅"],
+        "FB"     : ["\\", "Δ", "√", "∞"],
+        "RPG"    : ["^", "«", "»", "°"],
+        "BG"     : ["_", "≤", "≥", "µ"],
+        "P"      : ["`", "⊂", "⊃", "π"],
+        "PB"     : ["|", "⊤", "⊥", "¦"],
+        "FPBG"   : ["~", "⊆", "⊇", "˜"],
+        "FPBL"   : ["↑", "←", "→", "↓"]
     },
     "STWH": {
+        # add your own strokes here (or above, or wherever else you like)!
         ""       : "test"
     }
 }
@@ -56,12 +58,19 @@ symbols = {
 
 def lookup(key):
 
-    # decompose stroke. DZ are unused
+    # the regex decomposes a stroke into the following groups/variables:
+    # starter                #STKPWHR
+    # attachments                         AO
+    # capitalisation                             */-
+    # variants                                          EU
+    # selection                                                FRPBLG
+    # repetitions                                                         TS
+    #                                       (unused: DZ)
     match = re.fullmatch(r'([#STKPWHR]*)([AO]*)([*-]?)([EU]*)([FRPBLG]*)([TS]*)', key[0])
     if match is None:
         raise KeyError
-
     (starter, attachments, capitalisation, variants, selection, repetitions) = match.groups()
+
     if starter not in uniqueStarters:
         raise KeyError
     if len(key) != 1:
@@ -112,14 +121,14 @@ def lookup(key):
     if attach[1]:
         output = output + "{^}"
 
-    # cancel out some formatting when using space attachment 
+    # cancel out some formatting when using space attachment
     if attachmentMethod == "space":
         if not attach[0]:
             output = "{}" + output
         if not attach[1]:
-            output = output + "{}" 
+            output = output + "{}"
 
-    # apply capitalisation 
+    # apply capitalisation
     if capital:
         output = output + "{-|}"
 
