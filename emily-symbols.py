@@ -133,11 +133,13 @@ def lookup(key):
     if stroke != "":
         output = " " + output + " "
 
-    # add appropriate attachment as specified
-    if attach[0]:
-        output = "{^}" + output
-    if attach[1]:
-        output = output + "{^}"
+    # add appropriate attachment as specified (again, prevent doing this 
+    # for retrospective add/delete spaces)
+    if stroke != "":
+        if attach[0]:
+            output = "{^}" + output
+        if attach[1]:
+            output = output + "{^}"
 
     # cancel out some formatting when using space attachment 
     if attachmentMethod == "space":
