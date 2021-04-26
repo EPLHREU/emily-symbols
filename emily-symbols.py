@@ -2,7 +2,7 @@
 import re
 
 # define your starters here
-uniqueStarters = ["SKWH", "STWH"]
+uniqueStarters = ["SKWH", "#SKWH"]
 
 # define if attachment keys define where "space"s or "attachment"s lie
 attachmentMethod = "space"
@@ -49,7 +49,7 @@ symbols = {
         "FPBG"   : ["~", "⊆", "⊇", "˜"],
         "FPBL"   : ["↑", "←", "→", "↓"]
     },
-    "STWH": {
+    "#SKWH": {
         # add your own strokes here (or above, or wherever else you like)!
         ""       : "test"
     }
@@ -63,13 +63,13 @@ def lookup(key):
     # attachments                         AO
     # capitalisation                             */-
     # variants                                          EU
-    # selection                                                FRPBLG
+    # pattern                                                  FRPBLG
     # repetitions                                                         TS
     #                                       (unused: DZ)
     match = re.fullmatch(r'([#STKPWHR]*)([AO]*)([*-]?)([EU]*)([FRPBLG]*)([TS]*)', key[0])
     if match is None:
         raise KeyError
-    (starter, attachments, capitalisation, variants, selection, repetitions) = match.groups()
+    (starter, attachments, capitalisation, variants, pattern, repetitions) = match.groups()
 
     if starter not in uniqueStarters:
         raise KeyError
@@ -98,11 +98,11 @@ def lookup(key):
     if 'T' in repetitions:
         repeat = repeat + 2
 
-    if selection not in symbols[starter]:
+    if pattern not in symbols[starter]:
         raise KeyError
 
     # extract symbol entry from the 'symbols' dictionary, with variant specification if available
-    output = symbols[starter][selection]
+    output = symbols[starter][pattern]
     if type(output) == list:
         output = output[variant]
 
@@ -117,7 +117,7 @@ def lookup(key):
 
     # add appropriate attachment as specified (again, prevent doing this 
     # for retrospective add/delete spaces)
-    if selection != "":
+    if pattern != "":
         if attach[0]:
             output = "{^}" + output
         if attach[1]:
