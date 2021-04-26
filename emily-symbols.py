@@ -117,7 +117,7 @@ def lookup(key):
 
     # add appropriate attachment as specified (again, prevent doing this 
     # for retrospective add/delete spaces)
-    if stroke != "":
+    if selection != "":
         if attach[0]:
             output = "{^}" + output
         if attach[1]:
