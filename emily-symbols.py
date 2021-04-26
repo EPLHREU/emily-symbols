@@ -102,9 +102,10 @@ def lookup(key):
         raise KeyError
 
     # extract symbol entry from the 'symbols' dictionary, with variant specification if available
-    output = symbols[starter][pattern]
-    if type(output) == list:
-        output = output[variant]
+    selection = symbols[starter][pattern]
+    if type(selection) == list:
+        selection = selection[variant]
+    output = selection
 
     # repeat the symbol the specified number of times
     output = output * repeat
@@ -112,12 +113,12 @@ def lookup(key):
     # attachment space to either end of the symbol string to avoid escapement,
     # but prevent doing this for retrospective add/delete spaces, since it'll
     # mess with these macros
-    if output not in ["{*!}", "{*?}", "{#Space}"]:
+    if selection not in ["{*!}", "{*?}"]:
         output = " " + output + " "
 
     # add appropriate attachment as specified (again, prevent doing this 
     # for retrospective add/delete spaces)
-    if pattern != "":
+    if selection not in ["{*!}", "{*?}"]:
         if attach[0]:
             output = "{^}" + output
         if attach[1]:
