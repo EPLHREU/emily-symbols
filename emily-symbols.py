@@ -1,128 +1,110 @@
 # Emily's Symbol Dictionary
+import re
 
-
-# define unique starter to register all chords under
-uniqueStarter = "SKWH"
+# define your starters here
+uniqueStarters = ["SKWH", "STWH"]
 
 # define if attachment keys define where "space"s or "attachment"s lie
 attachmentMethod = "space"
-
 
 LONGEST_KEY = 1
 
 # variant format = ['', 'E', 'U', 'EU']
 # if no variants exist, then a single string can be used for the symbol and the variant specifier keys will be valid but ignored
 symbols = {
+    "SKWH": {
         # more computer function-y symbols
-        "FG"    : ["{#Tab}", "{#Backspace}", "{#Delete}", "{#Escape}"],             
-        "RPBG"  : ["{#Up}", "{#Left}", "{#Right}", "{#Down}"],                      
-        "FRPBG" : ["{#Page_Up}", "{#Home}", "{#End}", "{#Page_Down}"],              
-        "FRBG"  : ["{#AudioPlay}", "{#AudioPrev}", "{#AudioNext}", "{#AudioMute}"], 
-        ""      : ["", "{*!}", "{*?}", "{#Space}"],                                 
+        "FG"    : ["{#Tab}", "{#Backspace}", "{#Delete}", "{#Escape}"],
+        "RPBG"  : ["{#Up}", "{#Left}", "{#Right}", "{#Down}"],
+        "FRPBG" : ["{#Page_Up}", "{#Home}", "{#End}", "{#Page_Down}"],
+        "FRBG"  : ["{#AudioPlay}", "{#AudioPrev}", "{#AudioNext}", "{#AudioMute}"],
+        ""      : ["", "{*!}", "{*?}", "{#Space}"],
 
         # typable symbols
-        "FR"     : ["!", "¬", "↦", "¡"],  
-        "FP"     : ["\"", "“", "”", "„"], 
-        "FRLG"   : ["#", "©", "®", "™"],  
-        "RPBL"   : ["$", "¥", "€", "£"],  
-        "FRPB"   : ["%", "‰", "‱", "φ"],  
-        "FBG"    : ["&", "∩", "∧", "∈"],  
-        "F"      : ["'", "‘", "’", "‚"],  
-        "FPL"    : ["(", "[", "<", "\{"], 
-        "RBG"    : [")", "]", ">", "\}"], 
-        "L"      : ["*", "∏", "§", "×"],  
-        "G"      : ["+", "∑", "¶", "±"],  
-        "B"      : [",", "∪", "∨", "∉"],  
+        "FR"     : ["!", "¬", "↦", "¡"],
+        "FP"     : ["\"", "“", "”", "„"],
+        "FRLG"   : ["#", "©", "®", "™"],
+        "RPBL"   : ["$", "¥", "€", "£"],
+        "FRPB"   : ["%", "‰", "‱", "φ"],
+        "FBG"    : ["&", "∩", "∧", "∈"],
+        "F"      : ["'", "‘", "’", "‚"],
+        "FPL"    : ["(", "[", "<", "\{"],
+        "RBG"    : [")", "]", ">", "\}"],
+        "L"      : ["*", "∏", "§", "×"],
+        "G"      : ["+", "∑", "¶", "±"],
+        "B"      : [",", "∪", "∨", "∉"],
         "PL"     : ["-", "−", "–", "—"],
-        "R"      : [".", "•", "·", "…"],  
-        "RP"     : ["/", "⇒", "⇔", "÷"],  
-        "LG"     : [":", "∋", "∵", "∴"],  
-        "RB"     : [";", "∀", "∃", "∄"],  
-        "PBLG"   : ["=", "≡", "≈", "≠"],  
-        "FPB"    : ["?", "¿", "∝", "‽"],  
-        "FRPBLG" : ["@", "⊕", "⊗", "∅"],  
-        "FB"     : ["\\", "Δ", "√", "∞"], 
-        "RPG"    : ["^", "«", "»", "°"],  
-        "BG"     : ["_", "≤", "≥", "µ"],  
-        "P"      : ["`", "⊂", "⊃", "π"],  
-        "PB"     : ["|", "⊤", "⊥", "¦"],  
-        "FPBG"   : ["~", "⊆", "⊇", "˜"],  
-        "FPBL"   : ["↑", "←", "→", "↓"]   
+        "R"      : [".", "•", "·", "…"],
+        "RP"     : ["/", "⇒", "⇔", "÷"],
+        "LG"     : [":", "∋", "∵", "∴"],
+        "RB"     : [";", "∀", "∃", "∄"],
+        "PBLG"   : ["=", "≡", "≈", "≠"],
+        "FPB"    : ["?", "¿", "∝", "‽"],
+        "FRPBLG" : ["@", "⊕", "⊗", "∅"],
+        "FB"     : ["\\", "Δ", "√", "∞"],
+        "RPG"    : ["^", "«", "»", "°"],
+        "BG"     : ["_", "≤", "≥", "µ"],
+        "P"      : ["`", "⊂", "⊃", "π"],
+        "PB"     : ["|", "⊤", "⊥", "¦"],
+        "FPBG"   : ["~", "⊆", "⊇", "˜"],
+        "FPBL"   : ["↑", "←", "→", "↓"]
+    },
+    "STWH": {
+        # add your own strokes here (or above, or wherever else you like)!
+        ""       : "test"
+    }
 }
 
 
 def lookup(key):
 
-    # filter irrelevant strokes
-    if not key[0].startswith(uniqueStarter):
+    # the regex decomposes a stroke into the following groups/variables:
+    # starter                #STKPWHR
+    # attachments                         AO
+    # capitalisation                             */-
+    # variants                                          EU
+    # selection                                                FRPBLG
+    # repetitions                                                         TS
+    #                                       (unused: DZ)
+    match = re.fullmatch(r'([#STKPWHR]*)([AO]*)([*-]?)([EU]*)([FRPBLG]*)([TS]*)', key[0])
+    if match is None:
         raise KeyError
-    if not len(key) == 1:
+    (starter, attachments, capitalisation, variants, selection, repetitions) = match.groups()
+
+    if starter not in uniqueStarters:
+        raise KeyError
+    if len(key) != 1:
         raise KeyError
     assert len(key) <= LONGEST_KEY
 
-    # nicely format the stroke for string manipulation
-    stroke = str(key[0][len(uniqueStarter):])
-
-    # support a blank stroke with no symbol
-    if len(stroke) == 0:
-        stroke = "-"
-
-    # ensure that the uniqueStarter doesn't contain any trailing letters, therefor the next letter must be from the middle bank
-    middleBank = ['A', 'O', 'E', 'U', "-", "*"]
-    if stroke[0] not in middleBank:
-        raise KeyError
-
-    # remove a "-" if present, as all keys from this point on are unique
-    stroke = stroke.replace("-", '')
-
-    # if specifying attachment via spaces, by default there is full attachment
-    if attachmentMethod == "space":
-        attach = [True, True]
-    else:
-        attach = [False, False]
-
     # calculate the attachment method, and remove attachment specifier keys
-    if 'A' in stroke:
-        attach[0] = not attach[0]
-        stroke = stroke.replace('A', '')
-    if 'O' in stroke:
-        attach[1] = not attach[1]
-        stroke = stroke.replace('O', '')
+    attach = [(attachmentMethod == "space") ^ ('A' in attachments),
+              (attachmentMethod == "space") ^ ('O' in attachments)]
 
     # detect if capitalisation is required, and remove specifier key
-    capital = False
-    if "*" in stroke:
-        capital = True
-        stroke = stroke.replace("*", '')
+    capital = capitalisation == '*'
 
     # calculate the variant number, and remove variant specifier keys
     variant = 0
-    if 'E' in stroke:
+    if 'E' in variants:
         variant = variant + 1
-        stroke = stroke.replace('E', '')
-    if 'U' in stroke:
+    if 'U' in variants:
         variant = variant + 2
-        stroke = stroke.replace('U', '')
 
     # calculate the repetition, and remove repetition specifier keys
     repeat = 1
-    if 'S' in stroke:
+    if 'S' in repetitions:
         repeat = repeat + 1
-        stroke = stroke.replace('S', '')
-    if 'T' in stroke:
+    if 'T' in repetitions:
         repeat = repeat + 2
-        stroke = stroke.replace('T', '')
 
-    if not stroke in symbols:
+    if selection not in symbols[starter]:
         raise KeyError
-    
+
     # extract symbol entry from the 'symbols' dictionary, with variant specification if available
-    output = ""
-    entry = symbols[stroke]
-    if type(entry) == list:
-        output = entry[variant]
-    else:
-        output = entry
+    output = symbols[starter][selection]
+    if type(output) == list:
+        output = output[variant]
 
     # repeat the symbol the specified number of times
     output = output * repeat
@@ -130,7 +112,7 @@ def lookup(key):
     # attachment space to either end of the symbol string to avoid escapement,
     # but prevent doing this for retrospective add/delete spaces, since it'll
     # mess with these macros
-    if stroke != "":
+    if output not in ["{*!}", "{*?}", "{#Space}"]:
         output = " " + output + " "
 
     # add appropriate attachment as specified (again, prevent doing this 
@@ -141,14 +123,14 @@ def lookup(key):
         if attach[1]:
             output = output + "{^}"
 
-    # cancel out some formatting when using space attachment 
+    # cancel out some formatting when using space attachment
     if attachmentMethod == "space":
         if not attach[0]:
             output = "{}" + output
         if not attach[1]:
-            output = output + "{}" 
+            output = output + "{}"
 
-    # apply capitalisation 
+    # apply capitalisation
     if capital:
         output = output + "{-|}"
 
