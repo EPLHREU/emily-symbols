@@ -56,7 +56,19 @@ symbols = {
 }
 
 
-def lookup(key):
+def lookup(chord):
+
+    # normalise stroke from embedded number, to preceding hash format
+    stroke = chord[0]
+    if any(k in stroke for k in "1234506789"):  # if chord contains a number
+        stroke = list(stroke)
+        numbers = ["O", "S", "T", "P", "H", "A", "F", "P", "L", "T"]
+        for key in range(len(stroke)):
+            if stroke[key].isnumeric():
+                stroke[key] = numbers[int(stroke[key])]  # set number key to letter
+                numberFlag = True
+        stroke = ["#"] + stroke
+        stroke = "".join(stroke)
 
     # the regex decomposes a stroke into the following groups/variables:
     # starter                #STKPWHR
@@ -66,16 +78,17 @@ def lookup(key):
     # pattern                                                  FRPBLG
     # repetitions                                                         TS
     #                                       (unused: DZ)
-    match = re.fullmatch(r'([#STKPWHR]*)([AO]*)([*-]?)([EU]*)([FRPBLG]*)([TS]*)', key[0])
+    match = re.fullmatch(r'([#STKPWHR]*)([AO]*)([*-]?)([EU]*)([FRPBLG]*)([TS]*)', stroke)
+
     if match is None:
         raise KeyError
     (starter, attachments, capitalisation, variants, pattern, repetitions) = match.groups()
 
     if starter not in uniqueStarters:
         raise KeyError
-    if len(key) != 1:
+    if len(chord) != 1:
         raise KeyError
-    assert len(key) <= LONGEST_KEY
+    assert len(chord) <= LONGEST_KEY
 
     # calculate the attachment method, and remove attachment specifier keys
     attach = [(attachmentMethod == "space") ^ ('A' in attachments),
