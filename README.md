@@ -211,3 +211,8 @@ When using both `-S` and `-T` the symbol is typed out a combined 4 times.
 | Key                           | Output |
 |-------------------------------|--------|
 | ![Four Diagram](img/four.png) | `::::` |
+
+## Poster
+
+Check out the summary poster made by @sammdot for a nice one-page overview of how the whole dictionary works!
+[emily-symbols-poster](emily-symbols-poster.pdf)
