@@ -19,7 +19,7 @@ symbols = {
         "FRPBG" : ["{#Page_Up}", "{#Home}", "{#End}", "{#Page_Down}"],
         "FRBG"  : ["{#AudioPlay}", "{#AudioPrev}", "{#AudioNext}", "{#AudioMute}"],
         ""      : ["", "{*!}", "{*?}", "{#Space}"],
-        "FL"    : ["{-|}", "{*>}", "{>}", "{*-|}"],
+        "FL"    : ["{*-|}", "{*<}", "{<}", "{*>}"],
 
         # typable symbols
         "FR"     : ["!", "¬", "↦", "¡"],
