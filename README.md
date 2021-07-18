@@ -132,6 +132,8 @@ For each symbol shape the pattern only addresses the base symbol, it doesn't app
 | ![Music Diagram](img/music.png)                 | `{#AudioPlay} {#AudioPrev} {#AudioNext} {#AudioMute}` | Like a strangely rotated L for err... _L_ovely music?                       |
 | Blank                                           |                                                       |                                                                             |
 | ![Blank Diagram](img/blank.png)                 | `'' {*!} {*?} {#Space}`                               | It's blank! Self descriptive                                                |
+| Capitalization                                  |                                                       |                                                                             |
+| ![Capitalization Diagram](img/capitalization.png)| `{*-\|} {*<} {<} {*>}`                               | Up at the top, separate, it's pointy like capital letters       |
 | !                                               |                                                       |                                                                             |
 | ![Exclamation Diagram](img/exclamation.png)     | `! ¬ ↦ ¡`                                             | Vertical shape that's off to the left, like `!` on a regular keyboard       |
 | "                                               |                                                       |                                                                             |
