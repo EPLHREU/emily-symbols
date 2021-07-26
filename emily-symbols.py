@@ -17,7 +17,8 @@ symbols = {
         "FG"    : ["{#Tab}", "{#Backspace}", "{#Delete}", "{#Escape}"],
         "RPBG"  : ["{#Up}", "{#Left}", "{#Right}", "{#Down}"],
         "FRPBG" : ["{#Page_Up}", "{#Home}", "{#End}", "{#Page_Down}"],
-        "FRBG"  : ["{#AudioPlay}", "{#AudioPrev}", "{#AudioNext}", "{#AudioMute}"],
+        "FRBG"  : ["{#AudioPlay}", "{#AudioPrev}", "{#AudioNext}", "{#AudioStop}"],
+        "FRB"   : ["{#AudioMute}", "{#AudioLowerVolume}", "{#AudioRaiseVolume}", "{#Eject}"],
         ""      : ["", "{*!}", "{*?}", "{#Space}"],
         "FL"    : ["{*-|}", "{*<}", "{<}", "{*>}"],
 

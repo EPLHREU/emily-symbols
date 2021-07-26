@@ -130,6 +130,8 @@ For each symbol shape the pattern only addresses the base symbol, it doesn't app
 | ![Navigation Diagram](img/nav.png)              | `{#Page_Up} {#Home} {#End} {#Page_Down}`              | Arrow key cluster but with an addition key held down                        |
 | Music                                           |                                                       |                                                                             |
 | ![Music Diagram](img/music.png)                 | `{#AudioPlay} {#AudioPrev} {#AudioNext} {#AudioMute}` | Like a strangely rotated L for err... _L_ovely music?                       |
+| Audio                                           |                                                       |                                                                             |
+| ![Audio Diagram](img/audio.png)                 | `{#AudioMute} {#AudioLowerVolume} {#AudioRaiseVolume} {#Eject}` | Like a smaller strangely rotated L for err... _l_ovely music control?                       |
 | Blank                                           |                                                       |                                                                             |
 | ![Blank Diagram](img/blank.png)                 | `'' {*!} {*?} {#Space}`                               | It's blank! Self descriptive                                                |
 | Capitalization                                  |                                                       |                                                                             |
