@@ -1,8 +1,6 @@
 # Emily's Symbol Dictionary
 import re
 
-# define your starters here
-uniqueStarters = ["SKWH", "#SKWH"]
 
 # define if attachment keys define where "space"s or "attachment"s lie
 attachmentMethod = "space"
@@ -12,6 +10,7 @@ LONGEST_KEY = 1
 # variant format = ['', 'E', 'U', 'EU']
 # if no variants exist, then a single string can be used for the symbol and the variant specifier keys will be valid but ignored
 symbols = {
+    # define standard unique starter here
     "SKWH": {
         # more computer function-y symbols
         "FG"    : ["{#Tab}", "{#Backspace}", "{#Delete}", "{#Escape}"],
@@ -51,6 +50,7 @@ symbols = {
         "FPBG"   : ["~", "⊆", "⊇", "˜"],
         "FPBL"   : ["↑", "←", "→", "↓"]
     },
+    # define custom unique starter here, if needed
     "#SKWH": {
         # add your own strokes here (or above, or wherever else you like)!
         ""       : "test"
@@ -86,7 +86,7 @@ def lookup(chord):
         raise KeyError
     (starter, attachments, capitalisation, variants, pattern, repetitions) = match.groups()
 
-    if starter not in uniqueStarters:
+    if starter not in symbols:
         raise KeyError
     if len(chord) != 1:
         raise KeyError
