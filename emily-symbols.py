@@ -2,6 +2,7 @@
 import re
 
 # define your starters here
+#                standard  custom
 uniqueStarters = ["SKWH", "#SKWH"]
 
 # define if attachment keys define where "space"s or "attachment"s lie
@@ -12,7 +13,7 @@ LONGEST_KEY = 1
 # variant format = ['', 'E', 'U', 'EU']
 # if no variants exist, then a single string can be used for the symbol and the variant specifier keys will be valid but ignored
 symbols = {
-    "SKWH": {
+    uniqueStarters[0]: { # standard
         # more computer function-y symbols
         "FG"    : ["{#Tab}", "{#Backspace}", "{#Delete}", "{#Escape}"],
         "RPBG"  : ["{#Up}", "{#Left}", "{#Right}", "{#Down}"],
@@ -51,7 +52,7 @@ symbols = {
         "FPBG"   : ["~", "⊆", "⊇", "˜"],
         "FPBL"   : ["↑", "←", "→", "↓"]
     },
-    "#SKWH": {
+    uniqueStarters[1]: { # custom
         # add your own strokes here (or above, or wherever else you like)!
         ""       : "test"
     }
