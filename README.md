@@ -220,3 +220,7 @@ When using both `-S` and `-T` the symbol is typed out a combined 4 times.
 
 Check out the summary poster made by @sammdot for a nice one-page overview of how the whole dictionary works!
 [emily-symbols-poster](emily-symbols-poster.pdf)
+
+## Anki Cards
+
+Interested in using [Anki](https://ankiweb.net/) to study Emily's Symbol Dictionary? Download [emily-symbols.apkg](https://raw.githubusercontent.com/EPLHREU/emily-symbols/main/emily-symbols.apkg) using your favorite Anki client.
